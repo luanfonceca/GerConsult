@@ -1,4 +1,26 @@
 GerConsult::Application.routes.draw do
+  root to: "home#index"
+
+  resources :patients
+
+
+  resources :medical_scales
+
+
+  resources :handbooks
+
+
+  resources :agendas
+
+
+  resources :attendants
+
+
+  resources :doctors
+
+
+  devise_for :people
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
