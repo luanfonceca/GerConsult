@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 
+  crm: MyString
+  specialty: MyString
+
+two:
+  date: 
+  crm: MyString
+  specialty: MyString

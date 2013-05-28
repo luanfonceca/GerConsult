@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  crm: MyString
+  specialty: MyString
+
+two:
+  crm: MyString
+  specialty: MyString

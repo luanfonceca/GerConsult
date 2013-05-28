@@ -1,0 +1,23 @@
+<h1>Listing handbooks</h1>
+
+<table>
+  <tr>
+    <th>Crm</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @handbooks.each do |handbook| %>
+  <tr>
+    <td><%= handbook.crm %></td>
+    <td><%= link_to 'Show', handbook %></td>
+    <td><%= link_to 'Edit', edit_handbook_path(handbook) %></td>
+    <td><%= link_to 'Destroy', handbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Handbook', new_handbook_path %>

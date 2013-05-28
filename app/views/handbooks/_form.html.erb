@@ -1,0 +1,21 @@
+<%= form_for(@handbook) do |f| %>
+  <% if @handbook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@handbook.errors.count, "error") %> prohibited this handbook from being saved:</h2>
+
+      <ul>
+      <% @handbook.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :crm %><br />
+    <%= f.text_field :crm %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
