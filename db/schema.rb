@@ -11,50 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528175757) do
+ActiveRecord::Schema.define(:version => 20130611034746) do
 
   create_table "agendas", :force => true do |t|
     t.datetime "date"
-    t.string   "crm"
-    t.string   "specialty"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "attendants", :force => true do |t|
-    t.string   "sector"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "doctors", :force => true do |t|
-    t.string   "crm"
-    t.string   "specialty"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "handbooks", :force => true do |t|
-    t.string   "crm"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "medical_scales", :force => true do |t|
-    t.string   "crm"
-    t.datetime "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "patients", :force => true do |t|
-    t.string   "agreement"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "doctor_id"
+    t.integer  "attendant_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "people", :force => true do |t|
-    t.string   "email"
+    t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -68,11 +37,27 @@ ActiveRecord::Schema.define(:version => 20130528175757) do
     t.string   "name"
     t.date     "birthday"
     t.string   "phone"
+    t.string   "crm"
+    t.string   "speciality"
+    t.string   "sector"
+    t.string   "agreement"
+    t.string   "type"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
+
+  create_table "records", :force => true do |t|
+    t.integer  "doctor_id"
+    t.integer  "patient_id"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "records", ["doctor_id"], :name => "index_records_on_doctor_id"
+  add_index "records", ["patient_id"], :name => "index_records_on_patient_id"
 
 end

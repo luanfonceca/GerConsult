@@ -1,6 +1,5 @@
-class Doctor < ActiveRecord::Base
-  attr_accessible :crm, :specialty
-  has_many :medical_scales
-  has_many :handbooks
+class Doctor < Person
+  attr_accessible :crm, :speciality
+
   has_many :agendas
 end

@@ -1,4 +1,4 @@
-<%= simple_form_for @agenda do |f| %>
+<%= simple_form_for @record do |f| %>
   <% if f.error_notification %>
     <div class="alert alert-error fade in">
       <a class="close" data-dismiss="alert" href="#">&times;</a>
@@ -7,9 +7,8 @@
   <% end %>
 
   <%= f.input :doctor, collection: Doctor.all %>
-  <%= f.input :attendant, collection: Attendant.all%>
   <%= f.input :patient, collection: Patient.all %>
-  <%= f.input :date, class: :datepicker %>
+  <%= f.input :text %>
 
   <%= f.button :submit %>
 

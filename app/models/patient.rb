@@ -1,5 +1,5 @@
-class Patient < ActiveRecord::Base
+class Patient < Person
   attr_accessible :agreement
-  has_many :handbooks
+
   has_many :agendas
 end

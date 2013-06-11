@@ -36,8 +36,19 @@ class DeviseCreatePeople < ActiveRecord::Migration
       t.string :cpf
       t.string :name
       t.date :birthday
-      t.string :email
       t.string :phone
+
+      #doctor
+      t.string :crm
+      t.string :speciality
+
+      #atendant
+      t.string :sector
+
+      #patient
+      t.string :agreement
+
+      t.string :type
 
       t.timestamps
     end

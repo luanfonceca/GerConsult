@@ -40,7 +40,10 @@ class AgendasController < ApplicationController
   # POST /agendas
   # POST /agendas.json
   def create
-    @agenda = Agenda.new(params[:agenda])
+    @agenda = Agenda.new
+    @agenda.doctor = Doctor.find(params[:agenda][:doctor].to_i)
+    @agenda.attendant = Attendant.find(params[:agenda][:attendant].to_i)
+    @agenda.patient = Patient.find(params[:agenda][:patient].to_i)
 
     respond_to do |format|
       if @agenda.save
@@ -57,9 +60,12 @@ class AgendasController < ApplicationController
   # PUT /agendas/1.json
   def update
     @agenda = Agenda.find(params[:id])
+    @agenda.doctor = Doctor.find(params[:agenda][:doctor].to_i)
+    @agenda.attendant = Attendant.find(params[:agenda][:attendant].to_i)
+    @agenda.patient = Patient.find(params[:agenda][:patient].to_i)
 
     respond_to do |format|
-      if @agenda.update_attributes(params[:agenda])
+      if @agenda.save
         format.html { redirect_to @agenda, notice: 'Agenda was successfully updated.' }
         format.json { head :no_content }
       else

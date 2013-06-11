@@ -1,20 +1,14 @@
 GerConsult::Application.routes.draw do
-  root to: "home#index"
-
-  resources :patients
-
-
-  resources :medical_scales
-
-
-  resources :handbooks
+  resources :records
 
 
   resources :agendas
 
 
-  resources :attendants
+  resources :patients
 
+
+  root to: "home#index"
 
   resources :doctors
 

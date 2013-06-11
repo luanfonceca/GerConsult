@@ -39,9 +39,9 @@ class DoctorsController < ApplicationController
 
   # POST /doctors
   # POST /doctors.json
-  def create
+  def create    
     @doctor = Doctor.new(params[:doctor])
-
+    
     respond_to do |format|
       if @doctor.save
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }

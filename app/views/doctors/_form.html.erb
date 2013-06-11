@@ -1,9 +1,21 @@
-<%= simple_form_for @doctor, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @doctor do |f| %>
+  <% if f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <%= f.input :speciality %>
   <%= f.input :crm %>
-  <%= f.input :specialty %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                doctors_path, :class => 'btn' %>
-  </div>
+
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :name %>
+  <%= f.input :cpf %>
+  <%= f.input :phone %>
+  <%= f.input :birthday, class: :datepicker %>
+
+  <%= f.button :submit %>
+
 <% end %>

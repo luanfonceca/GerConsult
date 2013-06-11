@@ -18,7 +18,7 @@ class AgendasControllerTest < ActionController::TestCase
 
   test "should create agenda" do
     assert_difference('Agenda.count') do
-      post :create, agenda: { crm: @agenda.crm, date: @agenda.date, specialty: @agenda.specialty }
+      post :create, agenda: { atendant: @agenda.atendant, date: @agenda.date, doctor: @agenda.doctor, patient: @agenda.patient }
     end
 
     assert_redirected_to agenda_path(assigns(:agenda))
@@ -35,7 +35,7 @@ class AgendasControllerTest < ActionController::TestCase
   end
 
   test "should update agenda" do
-    put :update, id: @agenda, agenda: { crm: @agenda.crm, date: @agenda.date, specialty: @agenda.specialty }
+    put :update, id: @agenda, agenda: { atendant: @agenda.atendant, date: @agenda.date, doctor: @agenda.doctor, patient: @agenda.patient }
     assert_redirected_to agenda_path(assigns(:agenda))
   end
 
